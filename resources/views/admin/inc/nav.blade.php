@@ -41,7 +41,55 @@
 
 
         </ul>
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Billing Payment</div>
+        <ul class="pcoded-item pcoded-left-item">
+          <li class="pcoded-hasmenu">
+              <a href="javascript:void(0)">
+                  <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                  <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Billing Payment</span>
+                  <span class="pcoded-mcaret"></span>
+              </a>
+              <ul class="pcoded-submenu">
+                  <li class=" ">
+                      <a href="{{ route('billing.add') }}">
+                          <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                          <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Add Billing Accounts</span>
+                          <span class="pcoded-mcaret"></span>
+                      </a>
+                  </li>
+
+                  <li class=" ">
+                      <a href="{{ route('billing.all') }}">
+                          <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                          <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">All Billing</span>
+                          <span class="pcoded-mcaret"></span>
+                      </a>
+                  </li>
+              </ul>
+          </li>
 
 
+        </ul>
 
+        <ul class="pcoded-item pcoded-left-item">
+          <li class="pcoded-hasmenu">
+              <a href="javascript:void(0)">
+                  <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                  <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Installment </span>
+                  <span class="pcoded-mcaret"></span>
+              </a>
+              <ul class="pcoded-submenu">
+                <li class=" ">
+                    <a href="{{ route('installment.add') }}">
+                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Add Installment Accounts</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+
+              </ul>
+          </li>
+
+
+        </ul>
 </nav>

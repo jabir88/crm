@@ -29,3 +29,12 @@ Route::get('/download/{filename}', 'CustomerController@download')->name('down');
 
 Route::post('/customer/edit/submit', 'CustomerController@customereditsubmit')->name('customer.edit.submit');
 Route::get('/clear', 'CustomerController@clear')->name('clear');
+
+
+Route::get('/billing/add', 'BillingController@billing_add')->name('billing.add');
+Route::post('/billing/add/submit', 'BillingController@billing_add_sub')->name('add.accounts.submit');
+
+Route::get('/installment/add', 'BillingController@installment_add')->name('installment.add');
+Route::post('/installment/all', 'BillingController@installment_submit')->name('installment_add.submit');
+
+Route::get('/billing/all', 'BillingController@billing_all')->name('billing.all');

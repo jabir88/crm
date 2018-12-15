@@ -1,6 +1,19 @@
 @extends('admin.adminmaster')
 @section('contents')
 
+      <div class="page-header card">
+          <div class="card-block">
+                <ul class="breadcrumb-title ">
+            <li class="breadcrumb-item">
+                <a href="{{url('/')}}"> <i class="fa fa-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Customers</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">View Customer</a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
 <div class="main-body">
     <div class="page-wrapper">
         <div class="page-body">
