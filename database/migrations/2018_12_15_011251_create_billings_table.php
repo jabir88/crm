@@ -15,14 +15,14 @@ class CreateBillingsTable extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('select_company_name');
-            $table->string('quotation');
-            $table->string('invoice');
-            $table->string('services');
+            $table->string('select_company_name')->nullable();
+            $table->string('quotation')->nullable();
+            $table->string('invoice')->nullable();
+            $table->string('services')->nullable();
             $table->integer('total_amount');
-            $table->integer('paid');
-            $table->integer('balance');
-            $table->text('remark');
+            $table->integer('paid')->nullable();
+            $table->integer('balance')->nullable();
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

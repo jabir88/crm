@@ -22,9 +22,18 @@
       <!-- ico font --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
       <link rel="stylesheet" type="text/css" href="{{asset('admin/')}}/icon/icofont/css/icofont.css">
       <!-- Style.css -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="{{asset('admin/')}}/css/style.css">
       <link rel="stylesheet" type="text/css" href="{{asset('admin/')}}/css/jquery.mCustomScrollbar.css">
+      <style media="screen">
+
+
+      .select2-container--default .select2-selection--single .select2-selection__rendered{
+        background-color: #fff;
+          color: #000;
+      }
+      </style>
   </head>
 
   <body>
@@ -78,25 +87,12 @@
 <script type="text/javascript " src="{{asset('admin/')}}/js/SmoothScroll.js"></script>
 <script src="{{asset('admin/')}}/js/pcoded.min.js"></script>
 <script src="{{asset('admin/')}}/js/vartical-demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 <script src="{{asset('admin/')}}/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(function () {
-        $('.datepicker').datepicker({
-            format: "dd/mm/yyyy",
-            autoclose: true,
-            todayHighlight: true,
-          showOtherMonths: true,
-          selectOtherMonths: true,
-          autoclose: true,
-          changeMonth: true,
-          changeYear: true,
-          orientation: "button"
-        });
-    });
 
-</script>
 @yield('script_here')
 </body>
 

@@ -55,7 +55,9 @@ class CustomerController extends Controller
         $seo_month = $req->seo_month;
         $seo_last = $seo_years +$seo_month ;
 
-        $insert=  Customer::insert([
+
+        if (!empty($file_path)) {
+            $insert_id=  Customer::insertGetID([
           'company_name' =>$req->company_name,
           'customer_name' =>$req->customer_name,
           'contact' =>$req->contact,
@@ -77,12 +79,36 @@ class CustomerController extends Controller
           'files' =>$file_path,
           'created_at'=>Carbon::now(),
      ]);
-
-        if ($insert) {
-            return redirect()->back()->with('status', 'Customer Add Successfully!');
         } else {
-            return redirect()->back();
+            $insert_id=  Customer::insertGetID([
+        'company_name' =>$req->company_name,
+        'customer_name' =>$req->customer_name,
+        'contact' =>$req->contact,
+        'email' =>$req->email,
+        'domain' =>$req->domain,
+        'cpanel_link' =>$req->cpanel_link,
+        'cpanel_id' =>$req->cpanel_id,
+        'cpanel_password' =>$req->cpanel_password,
+        'website_link' =>$req->website_link,
+        'website_id' =>$req->website_id,
+        'website_password' =>$req->website_password,
+        'services_type' =>$req->services_type,
+        'email_hosting_month' =>$email_months_last,
+        'hosting_start_date' =>$req->hosting_start_date,
+        'hosting_end_date' =>$req->hosting_end_date,
+        'seo_month' =>$seo_last,
+        'seo_start_date' =>$req->seo_start_date,
+        'seo_end_date' =>$req->seo_end_date,
+
+        'created_at'=>Carbon::now(),
+      ]);
         }
+
+        return redirect()->back()->with('status', 'Customer Add Successfully!');
+        // if ($insert) {
+        // } else {
+        //     return redirect()->back();
+        // }
     }
     public function customer_all()
     {
@@ -157,6 +183,38 @@ class CustomerController extends Controller
         $product_pdf = $product_pdf->files;
         return   Storage::download($product_pdf);
     }
+    public function date_search(Request $req)
+    {
+        // $start = $req->start_date." 00:00:00";
+        if ($req->end_date == null) {
+            $req->end_date = Carbon::now();
+        } else {
+            $req->end_date = $req->end_date." 00:00:00";
+        }
+
+        $end = $req->end_date;
+        if ($req->start_date == null) {
+            $req->start_date = "1900-12-16 18:34:00";
+        } else {
+            $req->start_date = $req->start_date." 00:00:00";
+        }
+        $start = $req->start_date;
+
+        $customers =     Customer::whereBetween('created_at', [$start, $end])->get();
+
+        // echo "<pre>" ;
+        // print_r($date_range);
+        // echo "</pre>" ;
+        // if ($req->end_date) {
+        // code...
+        // }
+        // foreach ($customers as $customer) {
+        //     // code...
+        //     echo $customer->created_at."<br>";
+        // }
+        return view('admin.customer.customer_all', compact('customers'));
+    }
+
     public function customer_view($id)
     {
         $customer_view = Customer::where('id', $id)->first();

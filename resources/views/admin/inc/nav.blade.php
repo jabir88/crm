@@ -17,7 +17,7 @@
         <ul class="pcoded-item pcoded-left-item">
           <li class="pcoded-hasmenu">
               <a href="javascript:void(0)">
-                  <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                  <span class="pcoded-micon"><i class="ti-user"></i></span>
                   <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Customers</span>
                   <span class="pcoded-mcaret"></span>
               </a>
@@ -45,7 +45,7 @@
         <ul class="pcoded-item pcoded-left-item">
           <li class="pcoded-hasmenu">
               <a href="javascript:void(0)">
-                  <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                  <span class="pcoded-micon"><i class="ti-agenda"></i></span>
                   <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Billing Payment</span>
                   <span class="pcoded-mcaret"></span>
               </a>
@@ -74,7 +74,7 @@
         <ul class="pcoded-item pcoded-left-item">
           <li class="pcoded-hasmenu">
               <a href="javascript:void(0)">
-                  <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                  <span class="pcoded-micon"><i class="ti-server"></i></span>
                   <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Installment </span>
                   <span class="pcoded-mcaret"></span>
               </a>
@@ -86,7 +86,43 @@
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
+                <li class=" ">
+                    <a href="{{ route('installment.all') }}">
+                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">ALl Installment </span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
 
+              </ul>
+          </li>
+
+
+        </ul>
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Notepad</div>
+        <ul class="pcoded-item pcoded-left-item">
+          <li class="pcoded-hasmenu">
+              <a href="javascript:void(0)">
+                  <span class="pcoded-micon"><i class="ti-notepad"></i></span>
+                  <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Notepad</span>
+                  <span class="pcoded-mcaret"></span>
+              </a>
+              <ul class="pcoded-submenu">
+                  <li class=" ">
+                      <a href="{{ route('notepad.add') }}">
+                          <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                          <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Add Notepad</span>
+                          <span class="pcoded-mcaret"></span>
+                      </a>
+                  </li>
+
+                  <li class=" ">
+                      <a href="{{ route('notepad.all') }}">
+                          <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                          <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">All Billing</span>
+                          <span class="pcoded-mcaret"></span>
+                      </a>
+                  </li>
               </ul>
           </li>
 

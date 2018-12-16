@@ -19,6 +19,23 @@
 
         <div class="page-body">
           <div class="row">
+
+            <div class="col-12">
+            <div class="col-10 d-inline-block" >
+              <form class="" action="{{ route('date_search') }}" method="post">
+                @csrf
+                              <div class="input-group input-daterange">
+                <input type="text" class="form-control" id="start_date" value="" name="start_date">
+                <div class="input-group-addon">to</div>
+                <input type="text" class="form-control" id="end_data" value="{{\Carbon\Carbon::now()}}" name="end_date">
+                <div class="col-2 d-inline-block">
+              </div>
+              </div>
+
+                <button type="submit" name="button">Search</button>
+            </div>
+            </form>
+          </div>
 <div class="col-lg-12">
   @if (session('status'))
       <div class="alert alert-success">
@@ -32,7 +49,10 @@
   $i =1;
 @endphp
   <div class="card-block table-border-style">
-                                    <div class="table-responsive">
+<div class="table-responsive">
+
+
+
                                         <table id="table_customer" class="table">
                                             <thead>
                                                 <tr>
@@ -78,7 +98,7 @@
                                                     <td>{{ $customer->website_link }}</td>
                                                     <td>{{ $customer->website_id }}</td>
                                                     <td>{{ $customer->website_password }}</td>
-                                                    <td>{{ $customer->services_type }}</td>
+                                                    <td>{{str_limit( $customer->services_type, 35)}} </td>
                                                     <td>{{ $customer->email_hosting_month }}</td>
                                                     <td>{{ $customer->seo_month }}</td>
                                                     <td>
@@ -92,13 +112,13 @@
                                                       @if ($ext == 'jpeg' || $ext == 'jpg' || $ext == 'png')
                                                         {{-- {{ "asasdfihn" }} --}}
                                                         <a href="{{url('download/'.$customer->id)}}">
-                                                        <img src="{{ asset('storage/') }}/{{ $customer->files }}" height="50" alt="">
+                                                        <img title="{{ $customer->files }}" src="{{ asset('storage/') }}/{{ $customer->files }}" height="50" alt="">
                                                       </a>
                                                       @elseif ($ext == 'pdf')
                                                              {{-- @php
                                                                $newFileName = substr($one, 0 , (strrpos($one, ".")));
                                                              @endphp --}}
-                                                             <a href="{{url('download/'.$customer->id)}}">
+                                                             <a href="{{url('download/'.$customer->id)}}" title="{{ $customer->files }}">
                                                           <i class="ti-save" style="padding:12px ; font-size: 25px; color:#fff; background:red">
                                                           </i>
                                                         </a>
@@ -137,32 +157,44 @@
    <script type="text/javascript">
    $(document).ready(function() {
      $('#table_customer').DataTable( {
-         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+         "lengthMenu": [[10, 25, 50, -1], [ 10, 25, 50, "All"]],
          dom: 'Bfrtip',
          buttons: [
              {
                  extend: 'copyHtml5',
                  text: 'Reports',
                  exportOptions: {
-                     columns: [  0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
+                     columns: [  0,  2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
                  }
              },
              {
                  extend: 'excelHtml5',
                  text: 'Print',
+                   title: 'Customers All Accounts ',
                  exportOptions: {
-                   columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
+                   columns: [ 0,  2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
                  }
              },
              {
                  extend: 'pdfHtml5',
                  text: 'Export',
+
+                   title: 'Customers All Accounts ',
+                                    orientation: 'landscape',
                  exportOptions: {
-                     columns: [1, 2, 3,4,5,12]
+                     columns: [0,  2, 3,4,5,6,7,8]
                  }
              }
          ]
      } );
    });
+
+   $('.input-daterange input').each(function() {
+    $(this).datepicker('clearDates');
+});
+$('#start_date').change(function(){
+    // alert("The text has been changed.");
+  });
+
   </script>
 @endsection

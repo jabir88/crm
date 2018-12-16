@@ -33,8 +33,34 @@ Route::get('/clear', 'CustomerController@clear')->name('clear');
 
 Route::get('/billing/add', 'BillingController@billing_add')->name('billing.add');
 Route::post('/billing/add/submit', 'BillingController@billing_add_sub')->name('add.accounts.submit');
-
-Route::get('/installment/add', 'BillingController@installment_add')->name('installment.add');
-Route::post('/installment/all', 'BillingController@installment_submit')->name('installment_add.submit');
-
 Route::get('/billing/all', 'BillingController@billing_all')->name('billing.all');
+
+Route::get('/billing/edit/{id}', 'BillingController@billing_edit')->name('billing.edit');
+Route::post('/billing/edit/submit', 'BillingController@billing_edit_submit')->name('billing.edit.submit');
+Route::get('/billing/view/{id}', 'BillingController@billing_view')->name('billing.view');
+
+Route::get('/installment/add', 'InstallmentController@installment_add')->name('installment.add');
+Route::post('/installment/submit', 'InstallmentController@installment_submit')->name('installment_add.submit');
+Route::get('/installment/show/all', 'InstallmentController@installment_all')->name('installment.all');
+
+Route::get('/installment/edit/{id}', 'InstallmentController@installment_view_chart')->name('installment.view.chart');
+Route::get('/installment/view/{id}', 'InstallmentController@installment_view_one')->name('installment.view');
+Route::post('/installment/edit/submit', 'InstallmentController@installment_view_chart_submit')->name('installment.submit.chart');
+Route::post('/installment/view/chart/submit', 'InstallmentController@installment_view_chart_submit')->name('installment.submit.chart');
+
+
+Route::post('/customer/date/search', 'CustomerController@date_search')->name('date_search');
+
+
+
+
+
+
+
+Route::get('/notepad/add', 'NotepadController@notepad_add')->name('notepad.add');
+Route::post('/notepad/submit', 'NotepadController@notepad_submit')->name('add.notepad.submit');
+Route::get('/notepad/all', 'NotepadController@notepad_all')->name('notepad.all');
+Route::get('/notepad/edit/{id}', 'NotepadController@notepad_edit')->name('notepad.edit');
+Route::post('/notepad/edit/submit', 'NotepadController@notepad_edit_submit')->name('notepad.edit.submit');
+Route::get('/notepad/view/{id}', 'NotepadController@notepad_view')->name('notepad.view');
+Route::post('/company/add', 'BillingController@company_add')->name('company.add');
